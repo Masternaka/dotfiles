@@ -1,23 +1,11 @@
--- WezTerm configuration - Gruvbox Dark theme
+-- WezTerm configuration
 local wezterm = require "wezterm"
 local act = wezterm.action
 local config = wezterm.config_builder()
 
--- Gruvbox Dark color palette
-local colors = {
-    bg = "#282828",
-    fg = "#ebdbb2",
-    comment = "#928374",
-    red = "#fb4934",
-    green = "#b8bb26",
-    yellow = "#fabd2f",
-    blue = "#83a598",
-    magenta = "#d3869b",
-    cyan = "#8ec07c",
-    selection = "#3c3836",
-    caret = "#fe8019",
-    invisibles = "#3c3836"
-}
+-- Changer ce nom pour utiliser un autre thème (gruvbox-dark, catppuccin-mocha, nord)
+local THEME = "gruvbox-dark"
+local theme = require("themes." .. THEME)
 
 -- Keybindings
 config.keys = {}
@@ -63,7 +51,7 @@ config.line_height = 1.1
 config.window_frame = {
     font = wezterm.font { family = 'Lilex Nerd Font Mono', weight = 'Regular', style = 'Italic' },
     font_size = 12.0,
-    active_titlebar_bg = colors.bg
+    active_titlebar_bg = theme.background
 }
 
 -- Performance settings
@@ -85,47 +73,8 @@ config.freetype_load_target = "Light"
 config.freetype_render_target = "HorizontalLcd"
 config.hide_tab_bar_if_only_one_tab = true
 
--- Color scheme (Gruvbox Dark)
-config.colors = {
-    foreground = colors.fg,
-    background = colors.bg,
-    cursor_bg = colors.caret,
-    cursor_fg = colors.bg,
-    cursor_border = colors.caret,
-    selection_fg = colors.fg,
-    selection_bg = colors.selection,
-    scrollbar_thumb = colors.invisibles,
-    split = colors.invisibles,
-    ansi = {
-        colors.invisibles, -- black
-        colors.red,
-        colors.green,
-        colors.yellow,
-        colors.blue,
-        colors.magenta,
-        colors.cyan,
-        colors.fg,         -- white
-    },
-    brights = {
-        "#504945", -- bright black
-        "#fb4934", -- bright red
-        "#b8bb26", -- bright green
-        "#fabd2f", -- bright yellow
-        "#83a598", -- bright blue
-        "#d3869b", -- bright magenta
-        "#8ec07c", -- bright cyan
-        "#fbf1c7", -- bright white
-    },
-    tab_bar = {
-        background = colors.bg,
-        inactive_tab_edge = colors.invisibles,
-        active_tab = { bg_color = colors.blue, fg_color = colors.bg, intensity = "Bold" },
-        inactive_tab = { bg_color = colors.bg, fg_color = colors.comment },
-        inactive_tab_hover = { bg_color = "#3c3836", fg_color = colors.caret },
-        new_tab = { bg_color = colors.bg, fg_color = colors.caret, intensity = "Bold" },
-        new_tab_hover = { bg_color = "#3c3836", fg_color = colors.red }
-    }
-}
+-- Color scheme (chargé depuis themes/<THEME>.lua)
+config.colors = theme
 
 -- Mouse bindings
 config.mouse_bindings = {
