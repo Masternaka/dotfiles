@@ -1,0 +1,333 @@
+# Configuration des raccourcis clavier de Yazi
+# ~/.config/yazi/keymap.toml
+
+[manager]
+prepend_keymap = [
+	# ============================================================
+	# NAVIGATION DE BASE
+	# ============================================================
+
+	# Navigation vim
+	{ on = ["k"], run = "arrow -1", desc = "Monter" },
+	{ on = ["j"], run = "arrow 1", desc = "Descendre" },
+	{ on = ["h"], run = "leave", desc = "Retour au dossier parent" },
+	{ on = ["l"], run = "enter", desc = "Entrer dans le dossier" },
+
+	# Navigation avec flèches (compatibilité)
+	{ on = ["<Up>"], run = "arrow -1", desc = "Monter" },
+	{ on = ["<Down>"], run = "arrow 1", desc = "Descendre" },
+	{ on = ["<Left>"], run = "leave", desc = "Retour" },
+	{ on = ["<Right>"], run = "plugin smart-enter", desc = "Smart enter" },
+
+	# Navigation rapide
+	{ on = ["K"], run = "arrow -5", desc = "Monter de 5" },
+	{ on = ["J"], run = "arrow 5", desc = "Descendre de 5" },
+	{ on = ["g", "g"], run = "arrow -99999999", desc = "Aller en haut" },
+	{ on = ["G"], run = "arrow 99999999", desc = "Aller en bas" },
+
+	# Navigation par pages
+	{ on = ["<C-u>"], run = "arrow -50%", desc = "Page précédente" },
+	{ on = ["<C-d>"], run = "arrow 50%", desc = "Page suivante" },
+	{ on = ["<C-b>"], run = "arrow -100%", desc = "Page complète haut" },
+	{ on = ["<C-f>"], run = "arrow 100%", desc = "Page complète bas" },
+	{ on = ["<PageUp>"], run = "arrow -100%", desc = "Page précédente" },
+	{ on = ["<PageDown>"], run = "arrow 100%", desc = "Page suivante" },
+
+	# ============================================================
+	# SÉLECTION
+	# ============================================================
+
+	{ on = ["<Space>"], run = ["select --state=none", "arrow 1"], desc = "Toggle sélection" },
+	{ on = ["v"], run = "visual_mode", desc = "Mode visuel" },
+	{ on = ["V"], run = "visual_mode --unset", desc = "Quitter mode visuel" },
+	{ on = ["<C-a>"], run = "select_all --state=true", desc = "Tout sélectionner" },
+	{ on = ["<C-r>"], run = "select_all --state=none", desc = "Tout désélectionner" },
+
+	# ============================================================
+	# OPÉRATIONS SUR FICHIERS
+	# ============================================================
+
+	# Ouverture
+	{ on = ["o"], run = "open", desc = "Ouvrir" },
+	{ on = ["O"], run = "open --interactive", desc = "Ouvrir avec..." },
+	{ on = ["<Enter>"], run = "open", desc = "Ouvrir" },
+
+	# Copier/Couper/Coller
+	{ on = ["y"], run = "yank", desc = "Copier" },
+	{ on = ["x"], run = "yank --cut", desc = "Couper" },
+	{ on = ["p"], run = "paste", desc = "Coller" },
+	{ on = ["P"], run = "paste --force", desc = "Coller (écraser)" },
+
+	# Suppression
+	{ on = ["d"], run = "remove", desc = "Supprimer (corbeille)" },
+	{ on = ["D"], run = "remove --permanently", desc = "Supprimer définitivement" },
+
+	# Création et renommage
+	{ on = ["a"], run = "create", desc = "Créer fichier/dossier" },
+	{ on = ["r"], run = "rename", desc = "Renommer" },
+	{ on = ["R"], run = "plugin bulk-rename", desc = "Renommage en masse" },
+
+	# Compression
+	{ on = ["C"], run = "plugin compress", desc = "Compresser sélection" },
+
+	# Shell
+	{ on = [";"], run = "shell", desc = "Exécuter commande shell" },
+	{ on = [":"], run = "shell --block", desc = "Exécuter shell (bloquant)" },
+
+	# ============================================================
+	# RECHERCHE ET FILTRAGE
+	# ============================================================
+
+	# Recherche locale
+	{ on = ["/"], run = "find --smart", desc = "Rechercher" },
+	{ on = ["?"], run = "find --previous --smart", desc = "Rechercher (précédent)" },
+	{ on = ["n"], run = "find_arrow", desc = "Résultat suivant" },
+	{ on = ["N"], run = "find_arrow --previous", desc = "Résultat précédent" },
+
+	# Filtrage
+	{ on = ["f"], run = "filter --smart", desc = "Filtrer" },
+	{ on = ["F"], run = "find --smart --recursive", desc = "Rechercher (récursif)" },
+
+	# Recherche avancée (si plugins installés)
+	{ on = ["S"], run = "search fd", desc = "Recherche fd" },
+	{ on = ["s", "r"], run = "search rg", desc = "Recherche ripgrep" },
+
+	# ============================================================
+	# TRI
+	# ============================================================
+
+	{ on = ["s", "m"], run = "sort modified --reverse", desc = "Trier par date modif" },
+	{ on = ["s", "c"], run = "sort created --reverse", desc = "Trier par date création" },
+	{ on = ["s", "e"], run = "sort extension --reverse", desc = "Trier par extension" },
+	{ on = ["s", "a"], run = "sort alphabetical --reverse", desc = "Trier alphabétique" },
+	{ on = ["s", "n"], run = "sort natural --reverse", desc = "Trier naturel" },
+	{ on = ["s", "s"], run = "sort size --reverse", desc = "Trier par taille" },
+
+	# ============================================================
+	# NAVIGATION RAPIDE (GOTO)
+	# ============================================================
+
+	# Dossiers système
+	{ on = ["g", "h"], run = "cd ~", desc = "Aller au home" },
+	{ on = ["g", "c"], run = "cd ~/.config", desc = "Aller à .config" },
+	{ on = ["g", "d"], run = "cd ~/Downloads", desc = "Aller à Downloads" },
+	{ on = ["g", "D"], run = "cd ~/Documents", desc = "Aller à Documents" },
+	{ on = ["g", "t"], run = "cd /tmp", desc = "Aller à /tmp" },
+	{ on = ["g", "r"], run = "cd /", desc = "Aller à la racine" },
+
+	# Navigation interactive
+	{ on = ["g", "<Space>"], run = "cd --interactive", desc = "cd interactif" },
+	{ on = ["g", "."], run = "cd -", desc = "Aller au dossier précédent" },
+
+	# Projets (adapter selon vos besoins)
+	{ on = ["g", "p"], run = "cd ~/Projects", desc = "Aller à Projects" },
+	{ on = ["g", "w"], run = "cd ~/Workspace", desc = "Aller à Workspace" },
+
+	# Zoxide (si plugin installé)
+	{ on = ["z", "z"], run = "plugin zoxide", desc = "Zoxide jump" },
+
+	# Marque-pages (si plugin installé)
+	{ on = ["m"], run = "plugin bookmarks --args=save", desc = "Sauver marque-page" },
+	{ on = ["'"], run = "plugin bookmarks --args=jump", desc = "Aller au marque-page" },
+
+	# ============================================================
+	# TABS (ONGLETS)
+	# ============================================================
+
+	# Création et fermeture
+	{ on = ["t"], run = "tab_create --current", desc = "Nouvel onglet" },
+	{ on = ["<C-w>"], run = "close", desc = "Fermer onglet" },
+	{ on = ["<C-q>"], run = "close", desc = "Fermer onglet" },
+
+	# Navigation numérique
+	{ on = ["1"], run = "tab_switch 0", desc = "Onglet 1" },
+	{ on = ["2"], run = "tab_switch 1", desc = "Onglet 2" },
+	{ on = ["3"], run = "tab_switch 2", desc = "Onglet 3" },
+	{ on = ["4"], run = "tab_switch 3", desc = "Onglet 4" },
+	{ on = ["5"], run = "tab_switch 4", desc = "Onglet 5" },
+	{ on = ["6"], run = "tab_switch 5", desc = "Onglet 6" },
+	{ on = ["7"], run = "tab_switch 6", desc = "Onglet 7" },
+	{ on = ["8"], run = "tab_switch 7", desc = "Onglet 8" },
+	{ on = ["9"], run = "tab_switch 8", desc = "Onglet 9" },
+
+	# Navigation relative
+	{ on = ["["], run = "tab_switch -1 --relative", desc = "Onglet précédent" },
+	{ on = ["]"], run = "tab_switch 1 --relative", desc = "Onglet suivant" },
+	{ on = ["<C-Left>"], run = "tab_switch -1 --relative", desc = "Onglet précédent" },
+	{ on = ["<C-Right>"], run = "tab_switch 1 --relative", desc = "Onglet suivant" },
+
+	# Déplacement d'onglets
+	{ on = ["{"], run = "tab_swap -1", desc = "Déplacer onglet gauche" },
+	{ on = ["}"], run = "tab_swap 1", desc = "Déplacer onglet droite" },
+
+	# ============================================================
+	# AFFICHAGE
+	# ============================================================
+
+	# Toggle options
+	{ on = ["z", "h"], run = "hidden toggle", desc = "Toggle fichiers cachés" },
+	{ on = ["z", "s"], run = "linemode size", desc = "Mode taille" },
+	{ on = ["z", "p"], run = "linemode permissions", desc = "Mode permissions" },
+	{ on = ["z", "m"], run = "linemode mtime", desc = "Mode date modif" },
+
+	# Preview
+	{ on = ["z", "P"], run = "plugin --sync max-preview", desc = "Maximiser preview" },
+
+	# ============================================================
+	# COPIER CHEMIN
+	# ============================================================
+
+	{ on = ["c", "c"], run = "copy path", desc = "Copier chemin" },
+	{ on = ["c", "d"], run = "copy dirname", desc = "Copier nom dossier" },
+	{ on = ["c", "f"], run = "copy filename", desc = "Copier nom fichier" },
+	{ on = ["c", "n"], run = "copy name_without_ext", desc = "Copier nom sans ext" },
+	{ on = ["c", "w"], run = "copy path --with-line", desc = "Copier chemin:ligne" },
+
+	# ============================================================
+	# TERMINAL ET OUTILS
+	# ============================================================
+
+	# Ouvrir terminal dans le dossier courant
+	{ on = ["T"], run = 'shell --orphan "kitty --directory \"$PWD\""', desc = "Ouvrir kitty ici" },
+
+	# Gestionnaire de tâches
+	{ on = ["w"], run = "tasks_show", desc = "Afficher tâches" },
+
+	# ============================================================
+	# AIDE ET QUITTER
+	# ============================================================
+
+	{ on = ["~"], run = "help", desc = "Aide" },
+	{ on = ["?"], run = "help", desc = "Aide" },
+	{ on = ["q"], run = "quit", desc = "Quitter" },
+	{ on = ["Q"], run = "quit --no-cwd-file", desc = "Quitter sans cd" },
+	{ on = ["<Esc>"], run = "escape", desc = "Échap / Annuler" },
+	{ on = ["<C-c>"], run = "escape", desc = "Annuler" },
+]
+
+# ============================================================
+# TASKS (GESTIONNAIRE DE TÂCHES)
+# ============================================================
+
+[tasks]
+prepend_keymap = [
+	{ on = ["<Esc>"], run = "close", desc = "Fermer" },
+	{ on = ["q"], run = "close", desc = "Fermer" },
+	{ on = ["w"], run = "close", desc = "Fermer" },
+
+	# Navigation
+	{ on = ["k"], run = "arrow -1", desc = "Monter" },
+	{ on = ["j"], run = "arrow 1", desc = "Descendre" },
+	{ on = ["<Up>"], run = "arrow -1", desc = "Monter" },
+	{ on = ["<Down>"], run = "arrow 1", desc = "Descendre" },
+
+	# Actions
+	{ on = ["<Enter>"], run = "inspect", desc = "Inspecter" },
+	{ on = ["x"], run = "cancel", desc = "Annuler tâche" },
+	{ on = ["d"], run = "cancel", desc = "Annuler tâche" },
+	{ on = ["D"], run = "cancel --all", desc = "Annuler toutes les tâches" },
+]
+
+# ============================================================
+# SELECT (MENU DE SÉLECTION)
+# ============================================================
+
+[select]
+prepend_keymap = [
+	{ on = ["<Esc>"], run = "close", desc = "Annuler" },
+	{ on = ["<C-c>"], run = "close", desc = "Annuler" },
+	{ on = ["q"], run = "close", desc = "Annuler" },
+	{ on = ["<Enter>"], run = "close --submit", desc = "Valider" },
+
+	# Navigation
+	{ on = ["k"], run = "arrow -1", desc = "Monter" },
+	{ on = ["j"], run = "arrow 1", desc = "Descendre" },
+	{ on = ["<Up>"], run = "arrow -1", desc = "Monter" },
+	{ on = ["<Down>"], run = "arrow 1", desc = "Descendre" },
+
+	# Navigation rapide
+	{ on = ["g", "g"], run = "arrow -99999999", desc = "Début" },
+	{ on = ["G"], run = "arrow 99999999", desc = "Fin" },
+]
+
+# ============================================================
+# INPUT (SAISIE DE TEXTE)
+# ============================================================
+
+[input]
+prepend_keymap = [
+	{ on = ["<C-c>"], run = "close", desc = "Annuler" },
+	{ on = ["<Enter>"], run = "close --submit", desc = "Valider" },
+	{ on = ["<Esc>"], run = "escape", desc = "Échap" },
+
+	# Navigation type Emacs
+	{ on = ["<C-a>"], run = "move -999", desc = "Début de ligne" },
+	{ on = ["<C-e>"], run = "move 999", desc = "Fin de ligne" },
+	{ on = ["<Home>"], run = "move -999", desc = "Début de ligne" },
+	{ on = ["<End>"], run = "move 999", desc = "Fin de ligne" },
+
+	# Navigation par caractère
+	{ on = ["<Left>"], run = "move -1", desc = "Caractère précédent" },
+	{ on = ["<Right>"], run = "move 1", desc = "Caractère suivant" },
+
+	# Suppression
+	{ on = ["<Backspace>"], run = "backspace", desc = "Backspace" },
+	{ on = ["<C-h>"], run = "backspace", desc = "Backspace" },
+	{ on = ["<C-w>"], run = "backspace --under", desc = "Supprimer mot" },
+	{ on = ["<Delete>"], run = "delete", desc = "Supprimer caractère" },
+	{ on = ["<C-d>"], run = "delete", desc = "Supprimer caractère" },
+
+	# Suppression de ligne
+	{ on = ["<C-u>"], run = "kill bol", desc = "Supprimer jusqu'au début" },
+	{ on = ["<C-k>"], run = "kill eol", desc = "Supprimer jusqu'à la fin" },
+
+	# Historique
+	{ on = ["<Up>"], run = "history previous", desc = "Historique précédent" },
+	{ on = ["<Down>"], run = "history next", desc = "Historique suivant" },
+	{ on = ["<C-p>"], run = "history previous", desc = "Historique précédent" },
+	{ on = ["<C-n>"], run = "history next", desc = "Historique suivant" },
+]
+
+# ============================================================
+# COMPLETION (AUTO-COMPLÉTION)
+# ============================================================
+
+[completion]
+prepend_keymap = [
+	{ on = ["<C-c>"], run = "close", desc = "Annuler" },
+	{ on = ["<Tab>"], run = "close --submit", desc = "Valider" },
+	{ on = ["<Enter>"], run = "close --submit", desc = "Valider" },
+	{ on = ["<Esc>"], run = "close", desc = "Fermer" },
+
+	# Navigation
+	{ on = ["k"], run = "arrow -1", desc = "Monter" },
+	{ on = ["j"], run = "arrow 1", desc = "Descendre" },
+	{ on = ["<Up>"], run = "arrow -1", desc = "Monter" },
+	{ on = ["<Down>"], run = "arrow 1", desc = "Descendre" },
+	{ on = ["<C-p>"], run = "arrow -1", desc = "Monter" },
+	{ on = ["<C-n>"], run = "arrow 1", desc = "Descendre" },
+]
+
+# ============================================================
+# HELP (MENU D'AIDE)
+# ============================================================
+
+[help]
+prepend_keymap = [
+	{ on = ["<Esc>"], run = "escape", desc = "Fermer aide" },
+	{ on = ["q"], run = "escape", desc = "Fermer aide" },
+	{ on = ["~"], run = "escape", desc = "Fermer aide" },
+	{ on = ["?"], run = "escape", desc = "Fermer aide" },
+
+	# Navigation
+	{ on = ["k"], run = "arrow -1", desc = "Monter" },
+	{ on = ["j"], run = "arrow 1", desc = "Descendre" },
+	{ on = ["<Up>"], run = "arrow -1", desc = "Monter" },
+	{ on = ["<Down>"], run = "arrow 1", desc = "Descendre" },
+
+	# Navigation rapide
+	{ on = ["g", "g"], run = "arrow -99999999", desc = "Début" },
+	{ on = ["G"], run = "arrow 99999999", desc = "Fin" },
+	{ on = ["<C-u>"], run = "arrow -50%", desc = "Page précédente" },
+	{ on = ["<C-d>"], run = "arrow 50%", desc = "Page suivante" },
+]

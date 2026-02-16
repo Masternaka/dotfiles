@@ -1,0 +1,10 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# Active le flavor Gruvbox Dark.
+# Ce fichier doit être placé dans : ~/.config/yazi/theme.toml
+#
+# Tu peux surcharger n'importe quelle valeur du flavor ici
+# sans toucher aux fichiers du flavor lui-même.
+[flavor]
+dark  = "gruvbox-dark"    # utilisé quand le terminal est en mode sombre
+light = "gruvbox-light"  # utilisé quand le terminal est en mode clair

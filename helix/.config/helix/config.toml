@@ -1,0 +1,127 @@
+# ============================================================================
+# FICHIER DE CONFIGURATION PRINCIPAL: ~/.config/helix/config.toml
+# ============================================================================
+
+# Pour ouvrir un fichier dans Helix, utilisez la commande:
+# hx <nom_du_fichier>
+
+theme = "catppuccin_mocha"
+
+[editor]
+line-number = "relative"
+mouse = true
+middle-click-paste = true
+scroll-lines = 3
+scrolloff = 8
+cursorline = true
+cursorcolumn = false
+auto-completion = true
+auto-format = true
+auto-save = false
+idle-timeout = 250
+completion-timeout = 250
+preview-completion-insert = true
+completion-trigger-len = 2
+completion-replace = false
+auto-info = true
+true-color = true
+undercurl = true
+rulers = [80, 120]
+bufferline = "multiple"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "read-only-indicator", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "selections", "register", "position", "file-encoding"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+display-messages = true
+auto-signature-help = true
+display-inlay-hints = true
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+follow-symlinks = true
+deduplicate-links = true
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.search]
+smart-case = true
+wrap-around = true
+
+[editor.whitespace]
+render = "all"
+characters = { space = "·", nbsp = "⍽", tab = "→", newline = "⏎", tabpad = "·" }
+
+[editor.indent-guides]
+render = true
+character = "┊"
+skip-levels = 1
+
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer"]
+
+[editor.soft-wrap]
+enable = true
+max-wrap = 25
+max-indent-retain = 40
+wrap-indicator = "↪ "
+
+# Raccourcis clavier
+[keys.normal]
+C-s = ":w"
+C-q = ":q"
+C-z = "undo"
+C-y = "redo"
+X = "extend_line_above"
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-j = "jump_forward"
+C-k = "jump_backward"
+esc = ["collapse_selection", "keep_primary_selection"]
+
+[keys.normal.space]
+q = ":q"
+Q = ":q!"
+w = ":w"
+W = ":wq"
+f = "file_picker"
+F = "file_picker_in_current_directory"
+b = "buffer_picker"
+"/" = "global_search"
+h = "select_prev_sibling"
+l = "select_next_sibling"
+
+[keys.insert]
+C-s = ":w"
+A-x = "normal_mode"
+j.k = "normal_mode"
+
+[keys.select]
+X = "extend_line_above"
+esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]

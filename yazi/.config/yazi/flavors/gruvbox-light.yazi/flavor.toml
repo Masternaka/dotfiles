@@ -1,0 +1,144 @@
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# =============================================================================
+# Gruvbox Light — Yazi Flavor
+# Palette:
+#   bg0:    #fbf1c7   bg1: #ebdbb2   bg2: #d5c4a1   bg3: #bdae93   bg4: #a89984
+#   fg0:    #282828   fg1: #3c3836   fg2: #504945   fg3: #665c54   fg4: #7c6f64
+#   red:    #9d0006   green: #79740e   yellow: #b57614   blue: #076678
+#   purple: #8f3f71   aqua:  #427b58   orange: #af3a03   gray:  #928374
+# =============================================================================
+
+# ── Manager ──────────────────────────────────────────────────────────────────
+[manager]
+cwd             = { fg = "#076678", bold = true }
+
+hovered         = { fg = "#fbf1c7", bg = "#b57614", bold = true }
+preview_hovered = { underline = true }
+
+find_keyword    = { fg = "#b57614", bold = true, italic = false, underline = true }
+find_position   = { fg = "#af3a03", bg = "reset", bold = true, italic = false }
+
+marker_copied   = { fg = "#79740e", bg = "#79740e" }
+marker_cut      = { fg = "#9d0006", bg = "#9d0006" }
+marker_marked   = { fg = "#8f3f71", bg = "#8f3f71" }
+marker_selected = { fg = "#076678", bg = "#076678" }
+
+tab_active      = { fg = "#fbf1c7", bg = "#b57614", bold = true }
+tab_inactive    = { fg = "#504945", bg = "#ebdbb2" }
+tab_width       = 1
+
+count_copied    = { fg = "#fbf1c7", bg = "#79740e", bold = true }
+count_cut       = { fg = "#fbf1c7", bg = "#9d0006", bold = true }
+count_selected  = { fg = "#fbf1c7", bg = "#076678", bold = true }
+
+border_symbol   = "│"
+border_style    = { fg = "#bdae93" }
+
+# ── Mode (bas gauche) ────────────────────────────────────────────────────────
+[mode]
+normal_main  = { fg = "#fbf1c7", bg = "#79740e", bold = true }
+normal_alt   = { fg = "#79740e", bg = "#ebdbb2", bold = true }
+
+select_main  = { fg = "#fbf1c7", bg = "#b57614", bold = true }
+select_alt   = { fg = "#b57614", bg = "#ebdbb2", bold = true }
+
+unset_main   = { fg = "#fbf1c7", bg = "#076678", bold = true }
+unset_alt    = { fg = "#076678", bg = "#ebdbb2", bold = true }
+
+# ── Status bar (bas) ─────────────────────────────────────────────────────────
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#ebdbb2", bg = "#ebdbb2" }
+
+progress_label  = { fg = "#3c3836", bold = true }
+progress_normal = { fg = "#076678", bg = "#ebdbb2" }
+progress_error  = { fg = "#9d0006", bg = "#ebdbb2" }
+
+permissions_t = { fg = "#79740e" }
+permissions_r = { fg = "#b57614" }
+permissions_w = { fg = "#9d0006" }
+permissions_x = { fg = "#427b58" }
+permissions_s = { fg = "#928374" }
+
+# ── Input / Select ───────────────────────────────────────────────────────────
+[input]
+border   = { fg = "#b57614" }
+title    = { fg = "#b57614", bold = true }
+value    = { fg = "#3c3836" }
+selected = { fg = "#fbf1c7", bg = "#b57614" }
+
+[select]
+border   = { fg = "#076678" }
+active   = { fg = "#076678", bold = true }
+inactive = { fg = "#a89984" }
+
+# ── Completion ───────────────────────────────────────────────────────────────
+[completion]
+border   = { fg = "#bdae93" }
+active   = { fg = "#fbf1c7", bg = "#b57614" }
+inactive = { fg = "#7c6f64" }
+
+[completion.icon]
+file    = ""
+folder  = ""
+command = ""
+
+# ── Tasks ────────────────────────────────────────────────────────────────────
+[tasks]
+border  = { fg = "#bdae93" }
+title   = { bold = true }
+hovered = { underline = true }
+
+# ── Spot / Notify / Help ─────────────────────────────────────────────────────
+[spot]
+border = { fg = "#bdae93" }
+title  = { bold = true }
+
+[notify]
+title_info  = { fg = "#79740e", bold = true }
+title_warn  = { fg = "#b57614", bold = true }
+title_error = { fg = "#9d0006", bold = true }
+
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+[help]
+on      = { fg = "#b57614" }
+exec    = { fg = "#427b58" }
+desc    = { fg = "#7c6f64" }
+hovered = { bg = "#ebdbb2", bold = true }
+footer  = { fg = "#fbf1c7", bg = "#7c6f64" }
+
+# ── Types de fichiers ─────────────────────────────────────────────────────────
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*",      fg = "#8f3f71" },
+  # Vidéo / Audio
+  { mime = "video/*",      fg = "#af3a03" },
+  { mime = "audio/*",      fg = "#af3a03" },
+  # Archives
+  { mime = "application/zip",             fg = "#9d0006" },
+  { mime = "application/gzip",            fg = "#9d0006" },
+  { mime = "application/x-tar",           fg = "#9d0006" },
+  { mime = "application/x-bzip2",         fg = "#9d0006" },
+  { mime = "application/x-7z-compressed", fg = "#9d0006" },
+  { mime = "application/x-rar",           fg = "#9d0006" },
+  # Documents
+  { mime = "application/pdf",             fg = "#076678" },
+  { mime = "text/*",       fg = "#3c3836" },
+  # Exécutables
+  { mime = "application/x-executable",   fg = "#79740e", bold = true },
+  { mime = "application/x-mach-binary",  fg = "#79740e", bold = true },
+  # Liens symboliques cassés
+  { name = "*", is = "orphan", fg = "#9d0006", underline = true },
+  # Liens symboliques normaux
+  { name = "*", is = "link",   fg = "#427b58" },
+  # Exécutables
+  { name = "*", is = "exec",   fg = "#79740e", bold = true },
+  # Fallback
+  { name = "*", fg = "#3c3836" },
+]

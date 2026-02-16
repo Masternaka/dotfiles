@@ -1,0 +1,89 @@
+{
+  "colorscheme": "catppuccin-macchiato",
+  "colorcolumn": 80,
+
+  "tabsize": 2,
+  "tabstospaces": true,
+  "autoindent": true,
+  "smartindent": true,
+  "indentchar": " ",
+
+  "softwrap": true,
+  "wordwrap": true,
+  "ruler": true,
+  "rulercolumn": 100,
+  "cursorline": true,
+  "matchbrace": true,
+  "syntax": true,
+
+  "mouse": true,
+  "statusline": true,
+  "statusformatl": "$(filename) $(modified) $(readonly) | $(git.branch)",
+  "statusformatr": "$(filetype) $(line):$(col)  $(percent)  $(charset) | $(time)",
+
+  "autosave": false,
+  "saveundo": true,
+  "backup": true,
+  "backupdir": "~/.config/micro/backups",
+  "permbackup": false,
+
+  "clipboard": "external",
+  "truecolor": true,
+
+  "ignorecase": true,
+  "smartcase": true,
+  "incsearch": true,
+  "hlsearch": false,
+
+  "savecursor": true,
+  "scrollmargin": 3,
+  "scrollspeed": 2,
+  "eofnewline": true,
+  "rmtrailingws": true,
+  "trimws": true,
+
+  "pluginchannels": [
+    "https://raw.githubusercontent.com/micro-editor/plugin-channel/master/channel.json"
+  ],
+  "plugins": [
+    "autoclose",
+    "filemanager",
+    "git",
+    "linter",
+    "man",
+    "quote",
+    "spellcheck",
+    "tabcomplete"
+  ],
+
+  "filetype": {
+    "default": {
+      "tabsize": 2,
+      "tabstospaces": true
+    },
+    "go": {
+      "tabsize": 4,
+      "tabstospaces": false
+    },
+    "python": {
+      "tabsize": 4,
+      "tabstospaces": true
+    },
+    "makefile": {
+      "tabsize": 4,
+      "tabstospaces": false
+    },
+    "yaml": {
+      "tabsize": 2,
+      "tabstospaces": true
+    },
+    "json": {
+      "tabsize": 2,
+      "tabstospaces": true
+    },
+    "rust": {
+      "tabsize": 4,
+      "tabstospaces": true
+    }
+  }
+}

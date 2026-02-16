@@ -1,0 +1,174 @@
+# ============================================================================
+# FICHIER DE THEME: ~/.config/helix/themes/catppuccin_mocha.toml
+# ============================================================================
+
+# Catppuccin Mocha Theme for Helix
+# https://github.com/catppuccin/helix
+
+# Palette Catppuccin Mocha
+"ui.background" = { bg = "base" }
+"ui.background.separator" = "surface0"
+"ui.text" = "text"
+"ui.text.focus" = { fg = "text", bg = "surface0", modifiers = ["bold"] }
+"ui.text.inactive" = "overlay1"
+"ui.text.info" = "overlay2"
+
+"ui.cursor" = { fg = "base", bg = "rosewater" }
+"ui.cursor.primary" = { fg = "base", bg = "rosewater" }
+"ui.cursor.match" = { fg = "peach", modifiers = ["bold"] }
+"ui.cursor.insert" = { fg = "base", bg = "green" }
+"ui.cursor.select" = { fg = "base", bg = "flamingo" }
+
+"ui.selection" = { bg = "surface1" }
+"ui.selection.primary" = { bg = "surface2" }
+
+"ui.linenr" = "surface1"
+"ui.linenr.selected" = "lavender"
+
+"ui.statusline" = { fg = "subtext1", bg = "mantle" }
+"ui.statusline.inactive" = { fg = "surface2", bg = "mantle" }
+"ui.statusline.normal" = { fg = "base", bg = "blue", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "base", bg = "green", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "base", bg = "flamingo", modifiers = ["bold"] }
+
+"ui.bufferline" = { fg = "subtext0", bg = "mantle" }
+"ui.bufferline.active" = { fg = "mauve", bg = "base", underline = { color = "mauve", style = "line" } }
+"ui.bufferline.background" = { bg = "mantle" }
+
+"ui.popup" = { fg = "text", bg = "surface0" }
+"ui.popup.info" = { fg = "text", bg = "surface0" }
+"ui.window" = { fg = "overlay0" }
+"ui.help" = { fg = "text", bg = "surface0" }
+
+"ui.menu" = { fg = "text", bg = "surface0" }
+"ui.menu.selected" = { fg = "text", bg = "surface1", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "overlay0", bg = "surface0" }
+
+"ui.virtual.ruler" = { bg = "surface0" }
+"ui.virtual.whitespace" = "overlay0"
+"ui.virtual.indent-guide" = "surface0"
+"ui.virtual.inlay-hint" = { fg = "surface1", bg = "mantle" }
+"ui.virtual.jump-label" = { fg = "red", modifiers = ["bold"] }
+
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "sky", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "teal", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+"error" = "red"
+"warning" = "yellow"
+"info" = "sky"
+"hint" = "teal"
+
+"diff.plus" = "green"
+"diff.minus" = "red"
+"diff.delta" = "blue"
+
+"comment" = { fg = "overlay0", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "overlay2", modifiers = ["italic"] }
+
+"constant" = "peach"
+"constant.builtin" = "peach"
+"constant.builtin.boolean" = "mauve"
+"constant.character" = "teal"
+"constant.character.escape" = "pink"
+"constant.numeric" = "peach"
+
+"string" = "green"
+"string.regexp" = "pink"
+"string.special" = "blue"
+"string.special.symbol" = "red"
+
+"variable" = "text"
+"variable.builtin" = "red"
+"variable.parameter" = { fg = "maroon", modifiers = ["italic"] }
+"variable.other.member" = "teal"
+
+"label" = "sapphire"
+
+"punctuation" = "overlay2"
+"punctuation.bracket" = "overlay2"
+"punctuation.delimiter" = "overlay2"
+"punctuation.special" = "sky"
+
+"keyword" = "mauve"
+"keyword.control" = { fg = "mauve", modifiers = ["italic"] }
+"keyword.control.conditional" = { fg = "mauve", modifiers = ["italic"] }
+"keyword.control.import" = { fg = "mauve", modifiers = ["italic"] }
+"keyword.control.return" = { fg = "mauve", modifiers = ["italic"] }
+"keyword.control.exception" = "mauve"
+"keyword.operator" = "sky"
+"keyword.directive" = "mauve"
+"keyword.function" = { fg = "mauve", modifiers = ["italic"] }
+"keyword.storage" = "yellow"
+"keyword.storage.type" = "yellow"
+"keyword.storage.modifier" = "yellow"
+
+"operator" = "sky"
+
+"function" = "blue"
+"function.builtin" = "peach"
+"function.method" = "blue"
+"function.macro" = "red"
+"function.special" = "blue"
+
+"constructor" = "sapphire"
+
+"type" = "yellow"
+"type.builtin" = "yellow"
+"type.parameter" = "maroon"
+
+"attribute" = "blue"
+
+"namespace" = { fg = "blue", modifiers = ["italic"] }
+
+"special" = "blue"
+
+"markup.heading" = { fg = "red", modifiers = ["bold"] }
+"markup.heading.1" = { fg = "red", modifiers = ["bold"] }
+"markup.heading.2" = { fg = "mauve", modifiers = ["bold"] }
+"markup.heading.3" = { fg = "green", modifiers = ["bold"] }
+"markup.heading.4" = { fg = "yellow", modifiers = ["bold"] }
+"markup.heading.5" = { fg = "pink", modifiers = ["bold"] }
+"markup.heading.6" = { fg = "teal", modifiers = ["bold"] }
+"markup.list" = "mauve"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "rosewater", modifiers = ["underlined"] }
+"markup.link.text" = "blue"
+"markup.quote" = "mauve"
+"markup.raw" = "green"
+
+# Palette de couleurs Catppuccin Mocha
+[palette]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
