@@ -20,7 +20,7 @@ binds {
     Mod+Shift+Return                    hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
     //Mod+Shift+Return                    hotkey-overlay-title="File Manager: Thunar" { spawn "thunar"; }
     //Mod+Shift+Return                    hotkey-overlay-title="File Manager: Yazi" { spawn "yazi"; }
-    Mod+F11                           hotkey-overlay-title="Open Dropdown Terminal: kitty" { spawn "kitten" "quick-access-terminal"; }
+    Mod+F11                             hotkey-overlay-title="Open Dropdown Terminal: kitty" { spawn "kitten" "quick-access-terminal"; }
 
     // ─── Media Controls ───
     XF86AudioRaiseVolume                allow-when-locked=true { spawn-sh "qs -c noctalia-shell ipc call volume increase"; }
