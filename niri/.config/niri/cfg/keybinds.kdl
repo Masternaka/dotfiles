@@ -16,7 +16,7 @@ binds {
     Mod+Shift+Space                     hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+B                               hotkey-overlay-title="Open Browser: firefox" { spawn "firefox"; }
     Mod+ALT+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Shift+X                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
     Mod+Shift+Return                    hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }
     //Mod+Shift+Return                    hotkey-overlay-title="File Manager: Thunar" { spawn "thunar"; }
     //Mod+Shift+Return                    hotkey-overlay-title="File Manager: Yazi" { spawn "yazi"; }
@@ -118,18 +118,6 @@ binds {
     Mod+9                               { focus-workspace 9; }
     Mod+10                              { focus-workspace 10; }
 
-    // Focus workspace by name, use it only with the workspaces config file enable
-    //Mod+1                               { focus-workspace "web"; }
-    //Mod+2                               { focus-workspace "code"; }
-    //Mod+3                               { focus-workspace "terminal; }
-    //Mod+4                               { focus-workspace "files"; }
-    //Mod+5                               { focus-workspace "music"; }
-    //Mod+6                               { focus-workspace "chat"; }
-    //Mod+7                               { focus-workspace "mail"; }
-    //Mod+8                               { focus-workspace "notes"; }
-    //Mod+9                               { focus-workspace "media"; }
-    //Mod+10                              { focus-workspace "misc"; }
-
     Mod+Shift+1                          { move-column-to-workspace 1; }
     Mod+Shift+2                          { move-column-to-workspace 2; }
     Mod+Shift+3                          { move-column-to-workspace 3; }
@@ -144,9 +132,9 @@ binds {
     Mod+TAB                             { focus-workspace-previous; }
 
     // ─── Layout Controls ───
-    Mod+CTRL+F                          { expand-column-to-available-width; }
+    Mod+Shift+F                          { expand-column-to-available-width; }
     Mod+C                               { center-column; }
-    Mod+CTRL+C                          { center-visible-columns; }
+    Mod+Shift+C                          { center-visible-columns; }
     Mod+Minus                           { set-column-width "-10%"; }
     Mod+Equal                           { set-column-width "+10%"; }
     Mod+Shift+Minus                     { set-window-height "-10%"; }

@@ -2,7 +2,6 @@
 
 // ────────────── Miscellaneous Settings ──────────────
 
-
     prefer-no-csd
     screenshot-path null
 
@@ -22,14 +21,14 @@
 
     // Make workspaces four times smaller than normal in the overview.
     overview {
-        zoom 0.25
+        zoom 0.50
     }
 
     // Requires “Enable overview wallpaper” to be turned OFF in Noctalia’s settings on the Wallpaper tab.
-    overview {
-      workspace-shadow {
-          off
-      }
+    //overview {
+    //  workspace-shadow {
+    //      off
+    //  }
 
     hotkey-overlay {
        skip-at-startup

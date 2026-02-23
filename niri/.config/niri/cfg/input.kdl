@@ -15,6 +15,14 @@ input {
     touchpad {
         tap // Enable tap-to-click
         natural-scroll // Enable natural (macOS-style) scrolling
+        //accel-profile "flat"
+        scroll-method "two-finger"
+        //disable-on-external-mouse
+    }
+
+    cursor {
+        hide-when-typing
+        hide-after-inactive-ms 5000
     }
 
     warp-mouse-to-focus // Enable warp mouse to focus

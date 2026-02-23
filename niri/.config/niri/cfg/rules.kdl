@@ -9,51 +9,117 @@
         clip-to-geometry true
     }
 
-    window-rule {
-        match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-        match app-id=r#"^org\.gnome\.World\.Secrets$"#
-        block-out-from "screen-capture"
-
     layer-rule {
         match namespace="^noctalia-wallpaper*"
         place-within-backdrop true
     }
 
+    // Inactive window transparency
     window-rule {
-        match at-startup=true app-id="^firefox$"
-        open-on-workspace "1"
-        //open-on-output "DP-1"
-        open-maximized true
-        //open-maximized-to-edges true
-        // open-fullscreen true
-        open-focused true
+        match is-active=false
+        opacity 0.85
     }
 
+    // Block screen capture and for some apps
     window-rule {
-        match app-id="firefox$" title="^Picture-in-Picture$"
+        match app-id="Bitwarden"
+        match app-id="^org\\.keepassxc\\.KeePassXC$"
+        match app-id="^org\\.gnome\\.World\\.Secrets$"
+        match app-id="Proton Pass"
+
         open-floating true
-        open-maximized false
-        default-floating-position x=32 y=32 relative-to="bottom-left"
+        default-column-width { proportion 0.5; }
+        default-window-height { proportion 0.66667; }
+        block-out-from "screencast"
+        block-out-from "screen-capture"
     }
 
+    // Floating windows
     window-rule {
-        match at-startup=true app-id="^discord$"
-        open-on-workspace "6"
-    }
+        match app-id="org.gnome.Nautilus$" title="^Open File$"
+        match app-id="org.gnome.Nautilus$" title="^Select Export Location$"
+        match app-id=r#"org\.keepassxc\.KeePassXC"# title=r#".*Auto-Type.*"#
+        match app-id=r#"Bitwarden"# title=r#".*unlock.*"#
+        match app-id="xdg-desktop-portal-gtk"
+        match app-id="galculator"
+        match app-id="org.kde.kdeconnect.app"
+        match app-id="org.kde.polkit-kde-authentication-agent-1"
+        match app-id="polkit-gnome-authentication-agent-1"
+        match app-id="GParted"
+        match app-id="nwg-look"
+        match app-id="qt6ct"
+        match app-id="qt5ct"
+        match app-id="confirm"
+        match app-id=r#"org\.gtk\.FileChooserDialog"#
+        match title="popup title with spaces"
+        match title=r#".*(Open|Save|Select).*"#
+        match title=r#".*(Dialog|Properties|Preferences|Settings|Rename).*"#
+        match title=r#".*Authentication.*"#
+        match title=r#".*File.*"#
+        match title="^(file_progress)$"
+        match title="^(confirm)$"
+        match title="^(dialog)$"
+        match title="^(download)$"
+        match title="^(notification )$"
+        match title="^(error)$"
+        match title="^(splash)$"
+        match title="^File Operation Progress$"
+        match title="^Confirm to replace files$"
+        match title="^(Select a File)(.*)$"
+        match title="^(Open Folder)(.*)$"
+        match title="^(Save As)(.*)$"
+        match title="^(File Upload)(.*)$"
 
-    window-rule {
-        match at-startup=true app-id="^obsidian$"
-        open-on-workspace "7"
-        //default-column-width { fixed 1200; }
-        default-column-width { proportion 0.66667; }
-    }
-
-    window-rule {
-        match at-startup=true app-id="^gnome-disk-utility$"
-        open-on-workspace "8"
         open-floating true
         open-maximized false
         open-focused true
         default-window-height { proportion 0.5; }
         default-column-width { proportion 0.66667; }
+        //default-column-width { fixed 1200; }
+        //max-width 800
+        //max-height 1000
+
+    }
+
+    // Picture-in-Picture
+    window-rule {
+        match app-id="firefox$" title="^Picture-in-Picture$"
+        match app-id="brave-browser$" title="^Picture-in-Picture$"
+        match app-id="Vivaldi-stable$" title="^Picture-in-Picture$"
+        match title="Picture-in-Picture"
+
+        open-floating true
+        open-focused false
+        default-floating-position x=32 y=32 relative-to="bottom-left"
+    }
+
+    // Browser rules
+    window-rule {
+        match app-id="firefox$" title="^Firefox$"
+        match app-id="brave-browser$" title="^Brave$"
+        match app-id="Vivaldi-stable$" title="^Vivaldi$"
+        match title="Firefox"
+        match title="Brave"
+        match title="Vivaldi"
+        exclude title="Sign in"
+
+        open-on-output "HDMI-A-2"
+        //open-on-output "DP-1"
+        open-maximized true
+        open-focused true
+        //open-maximized-to-edges true
+        //open-fullscreen true
+
+    }
+
+    // Utility rules
+    window-rule {
+        app-id="^gnome-disk-utility$"
+
+        open-floating true
+        open-maximized false
+        open-focused true
+        default-window-height { proportion 0.5; }
+        default-column-width { proportion 0.66667; }
+        //default-column-width { fixed 1200; }
     }

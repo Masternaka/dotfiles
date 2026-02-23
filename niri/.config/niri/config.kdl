@@ -9,8 +9,7 @@ include "./cfg/display.kdl"
 include "./cfg/layout.kdl"
 include "./cfg/rules.kdl"
 include "./cfg/misc.kdl"
-include "./cfg/workspaces.kdl"
-//include "./cfg/rules_name_workspaces.kdl"
-//include "./cfg/windows_switcher.kdl"
+include "./cfg/windows_switcher.kdl"
+
 
 include "./noctalia.kdl"

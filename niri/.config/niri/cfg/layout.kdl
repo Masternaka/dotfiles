@@ -18,7 +18,6 @@
             proportion 0.66667
         }
 
-
         struts {
             // left 64
             // right 64
@@ -26,7 +25,7 @@
             // bottom 64
         }
 
-        tab-indicator {
+        //tab-indicator {
                 //off
                 hide-when-single-tab
                 place-within-column
