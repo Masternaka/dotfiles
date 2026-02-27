@@ -12,7 +12,7 @@ while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 picom --config ~/.config/picom/picom.conf --vsync &
 
 # Active Polybar (barre de statut)
-~/.config/i3/polybar/polybar-i3 &
+~/.config/polybar/polybar-i3 &
 
 # Active le fond d'écran (remplacer par le fond d'écran de votre choix)
 feh --bg-fill ~/.config/i3/wallpaper/wallhaven-yq5ywl.png &
@@ -24,7 +24,7 @@ dunst -config ~/.config/i3/dunst/dunstrc &
 autotiling &
 
 # Active le polkit (gestionnaire de permissions)
-lxpolkit &
+polkit-gnome-authentication-agent-1 &
 
 # Active le sxhkd (gestionnaire de raccourcis)
 pkill -x sxhkd
