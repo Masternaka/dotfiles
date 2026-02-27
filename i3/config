@@ -1,0 +1,36 @@
+# i3wm configuration file
+
+include $HOME/.config/i3/workspaces.conf
+include $HOME/.config/i3/rules.conf
+include $HOME/.config/i3/themes/catppuccin.conf
+
+### Pour le thème il faut choisir le lien avec celui que l'on veut utiliser et il
+### faut désactiver les éléments de configuration de couleur plus bas
+
+set $mod Mod4
+font pango:JetBrainsMono Nerd Font 12
+
+# Color scheme matching tabbed/dwm setup
+# class                 border  backgr. text    indicator child_border
+#client.focused          #b3e5fc #b3e5fc #1a1a1a #4fc3f7   #b3e5fc
+#client.focused_inactive #00141d #00141d #888888 #00141d   #00141d
+#client.unfocused        #00141d #00141d #FFFFFF #00141d   #00141d
+#client.urgent           #4fc3f7 #4fc3f7 #00141d #4fc3f7   #4fc3f7
+#client.placeholder      #00141d #00141d #FFFFFF #00141d   #00141d
+#client.background       #00141d
+
+# Add padding to window titles
+for_window [class=".*"] title_format "  %title"
+
+# Autostart applications
+exec_always --no-startup-id ~/.config/i3/scripts/autostart.sh
+exec_always --no-startup-id /usr/bin/autotiling
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# mouse warping to center of window (useful for autotiling)
+# none (le curseur reste exactement là où il est)
+# output (le curseur se déplace vers l’écran actif)
+# container (le curseur se déplace vers la fenêtre focalisée)
+mouse_warping container
