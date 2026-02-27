@@ -1,21 +1,21 @@
 # i3wm configuration file
 
+# Include the configuration files
 include $HOME/.config/i3/workspaces.conf
 include $HOME/.config/i3/rules.conf
 include $HOME/.config/i3/themes/catppuccin.conf
+### Pour le thème, il faut faire le lien avec celui que l'on veut utiliser dans le dossier themes
 
-### Pour le thème il faut choisir le lien avec celui que l'on veut utiliser et il
-### faut désactiver les éléments de configuration de couleur plus bas
+# Autostart applications
+exec_always --no-startup-id ~/.config/i3/scripts/autostart.sh
+exec_always --no-startup-id /usr/bin/autotiling
+
 
 set $mod Mod4
 font pango:JetBrainsMono Nerd Font 12
 
 # Add padding to window titles
 for_window [class=".*"] title_format "  %title"
-
-# Autostart applications
-exec_always --no-startup-id ~/.config/i3/scripts/autostart.sh
-exec_always --no-startup-id /usr/bin/autotiling
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -24,4 +24,7 @@ floating_modifier $mod
 # none (le curseur reste exactement là où il est)
 # output (le curseur se déplace vers l’écran actif)
 # container (le curseur se déplace vers la fenêtre focalisée)
-mouse_warping container
+mouse_warping none
+
+# Define workspace auto back and forth
+workspace_auto_back_and_forth no
