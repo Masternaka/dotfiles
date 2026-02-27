@@ -20,15 +20,15 @@ if command -v xrandr >/dev/null 2>&1; then
     # Launch bars on both monitors
     if [ -n "$PRIMARY_MONITOR" ]; then
         echo "Launching main bar on $PRIMARY_MONITOR"
-        MONITOR_PRIMARY=$PRIMARY_MONITOR polybar -c ~/.config/i3/polybar/config.ini main &
+        MONITOR_PRIMARY=$PRIMARY_MONITOR polybar -c ~/.config/polybar/config.ini main &
     fi
     
     if [ -n "$SECONDARY_MONITOR" ]; then
         echo "Launching secondary bar on $SECONDARY_MONITOR"
-        MONITOR_SECONDARY=$SECONDARY_MONITOR polybar -c ~/.config/i3/polybar/config.ini secondary &
+        MONITOR_SECONDARY=$SECONDARY_MONITOR polybar -c ~/.config/polybar/config.ini secondary &
     fi
 else
     # Fallback to single monitor
     echo "xrandr not found, launching single bar"
-    polybar -c ~/.config/i3/polybar/config.ini main &
+    polybar -c ~/.config/polybar/config.ini main &
 fi
