@@ -27,13 +27,13 @@
   "backupdir": "~/.config/micro/backups",
   "permbackup": false,
 
-  "clipboard": "external",
+  "clipboard": "terminal",
   "truecolor": true,
 
   "ignorecase": true,
   "smartcase": true,
   "incsearch": true,
-  "hlsearch": false,
+  "hlsearch": true,
 
   "savecursor": true,
   "scrollmargin": 3,
