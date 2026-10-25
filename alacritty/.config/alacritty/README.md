@@ -56,14 +56,13 @@ white   = "#d3c6aa"   # Crème
 ## ⚙️ Configuration principale
 
 ### Curseur
-- `style = "Underline"` - Curseur souligné
-- `blinking = "On"` - Clignotement activé
+- `style = { shape = "Underline", blinking = "On" }` - Curseur souligné avec clignotement activé
 - `unfocused_hollow = true` - Curseur creux quand la fenêtre n'a pas le focus
 - `thickness = 0.15` - Épaisseur du curseur
 - `vi_mode_style = "None"` - Pas de style spécial en mode Vi
 
 ### Fenêtre
-- `decorations = "full"` - Barre de titre complète activée
+- `decorations = "Full"` - Barre de titre complète activée
 - `decorations_theme_variant = "Dark"` - Variante sombre des décorations
 - `dynamic_padding = true` - Padding dynamique selon la taille de la fenêtre
 - `opacity = 0.8` - Transparence 80%
@@ -75,7 +74,7 @@ white   = "#d3c6aa"   # Crème
 ### Performance
 - `live_config_reload = true` - Rechargement automatique
 - `history = 10000` - Historique de 10k lignes
-- `multiplier = 3` - Buffer multiplié par 3
+- `multiplier = 3` - Trois lignes par cran de défilement
 
 ### Environnement
 - `TERM = "xterm-256color"` - Compatibilité avec les applications nécessitant xterm
@@ -91,7 +90,7 @@ white   = "#d3c6aa"   # Crème
 
 ## 🔤 Police
 
-**JetBrainsMono Nerd Font** en taille 12 pour tous les styles :
+**JetBrainsMono Nerd Font Mono** en taille 12 pour tous les styles :
 - Normal, Bold, Italic, Bold_italic
 - Support complet des icônes Nerd Font
 - Lisibilité optimale pour le code
@@ -198,8 +197,8 @@ opacity = 0.8  # Actuel
 ### Modifier les décorations
 ```toml
 [window]
-decorations = "full"              # Barre de titre complète (actuel)
-decorations = "none"              # Mode bordless
+decorations = "Full"              # Barre de titre complète (actuel)
+decorations = "None"              # Mode bordless
 decorations_theme_variant = "Dark"  # Variante sombre
 decorations_theme_variant = "Light" # Variante claire
 ```
@@ -223,7 +222,7 @@ y = 8   # Marges verticales
 ```toml
 [cursor]
 style = "Block"      # Carré
-style = "Underline"  # Souligné (actuel)
+style = { shape = "Underline", blinking = "On" }  # Souligné clignotant (actuel)
 style = "Beam"       # Vertical
 thickness = 0.15     # Épaisseur (0.0 à 1.0)
 unfocused_hollow = true  # Creux quand sans focus
@@ -237,7 +236,7 @@ unfocused_hollow = true  # Creux quand sans focus
 - Vérifier la syntaxe TOML
 
 ### Police non trouvée
-- Installer JetBrainsMono Nerd Font
+- Installer JetBrainsMono Nerd Font Mono
 - Vérifier que la police est bien installée système
 
 ### Transparence ne fonctionne pas
@@ -245,7 +244,7 @@ unfocused_hollow = true  # Creux quand sans focus
 - Sur certains systèmes, la transparence peut être désactivée
 
 ### Rechargement automatique ne fonctionne pas
-- Ajouter `live_config_reload = true` dans `[general]`
+- Avec Alacritty 0.13, placer `live_config_reload = true` et `import` à la racine du fichier, avant toute section `[env]` ou `[window]`
 - Sauvegarder le fichier avec une extension `.toml` valide
 
 ## 📝 Notes
