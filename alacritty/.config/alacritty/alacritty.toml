@@ -14,7 +14,7 @@ WINIT_X11_SCALE_FACTOR = "1"
 dynamic_padding = true
 decorations = "Full"
 dynamic_title = true
-opacity = 0.8
+opacity = 0.9
 startup_mode = "Windowed"
 decorations_theme_variant = "Dark"
 
